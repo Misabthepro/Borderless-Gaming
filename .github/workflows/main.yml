@@ -27,6 +27,9 @@ jobs:
     - name: Build solution
       run: msbuild BorderlessGaming.sln /p:Configuration=Release /p:SignAssembly=false  /p:CI=false
 
+    - name: Build installer with Inno Setup
+      run: iscc Installers\BorderlessGaming_Standalone_Admin.iss
+      
     - name: Upload executable
       uses: actions/upload-artifact@v4.6.2
       with:
