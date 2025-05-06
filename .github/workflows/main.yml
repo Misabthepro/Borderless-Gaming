@@ -1,0 +1,27 @@
+name: Build Solution1
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup MSBuild path
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build solution
+      run: msbuild path/to/YourSolution.sln /p:Configuration=Release
+
+    - name: Upload executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: MyAppExecutable
+        path: path/to/your/executable.exe
