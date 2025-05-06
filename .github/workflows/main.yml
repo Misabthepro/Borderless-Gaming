@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2016
+    runs-on: windows-2019
 
     steps:
     - name: Checkout code
@@ -18,7 +18,7 @@ jobs:
       run: nuget restore BorderlessGaming.sln
 
     - name: Build solution
-      run: msbuild BorderlessGaming.sln /p:Configuration=Release
+      run: msbuild BorderlessGaming.sln /p:Configuration=Release /p:SignAssembly=false
 
     - name: Upload executable
       uses: actions/upload-artifact@v4.6.2
