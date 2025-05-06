@@ -1,10 +1,7 @@
-name: Build Solution1
+name: Build BorderlessGaming
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,10 +15,10 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Build solution
-      run: msbuild path/to/YourSolution.sln /p:Configuration=Release
+      run: msbuild BorderlessGaming.sln /p:Configuration=Release
 
-    - name: Upload executable
+    - name: Upload BorderlessGaming executable
       uses: actions/upload-artifact@v3
       with:
-        name: MyAppExecutable
-        path: path/to/your/executable.exe
+        name: BorderlessGaming
+        path: BorderlessGaming\bin\Release\BorderlessGaming.exe
