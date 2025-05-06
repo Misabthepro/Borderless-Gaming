@@ -18,7 +18,7 @@ jobs:
       run: msbuild BorderlessGaming.sln /p:Configuration=Release
 
     - name: Upload BorderlessGaming executable
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.6.2
       with:
         name: BorderlessGaming
         path: BorderlessGaming\bin\Release\BorderlessGaming.exe
